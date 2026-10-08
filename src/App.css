@@ -16,6 +16,33 @@
   margin: 0 0 8px;
 }
 
+.header-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+
+.header-input label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.header-input input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .header-user {
   margin: 0 0 4px;
   font-weight: 600;
@@ -44,6 +71,50 @@
   margin: 4px 0;
 }
 
+/* ---------- טופס הוספת משימה ---------- */
+.task-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.task-form label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.task-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.task-form button {
+  padding: 8px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 /* ---------- רשימת משימות ---------- */
 .task-list h2 {
   font-size: 18px;
@@ -56,15 +127,29 @@
   margin: 0;
 }
 
+.task-list li {
+  margin-bottom: 8px;
+}
+
+/* המשימה היא כפתור — מאפסים את עיצוב ברירת המחדל ומעצבים ידנית */
 .task {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  width: 100%;
   padding: 12px 16px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  margin-bottom: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+}
+
+.task:hover {
+  background: var(--social-bg);
 }
 
 .task.done .task-title {
