@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import FavoriteButton from './components/FavoriteButton';
 import ContactForm from './components/ContactForm';
+import AddProductForm from './components/AddProductForm';
 
-const products = [
+const initialProducts = [
   {
     id: 1,
     name: 'סט כוסות',
@@ -27,6 +28,9 @@ const products = [
 ];
 
 function App() {
+  const [products, setProducts] = useState(initialProducts);
+  const [showForm, setShowForm] = useState(false);
+
   // ברירת מחדל: לפי העדפת מערכת ההפעלה
   const [mode, setMode] = useState(() =>
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -57,6 +61,18 @@ function App() {
           </li>
         ))}
       </ul>
+      <button type="button" onClick={() => setShowForm(!showForm)}>
+        הוסף מוצר
+      </button>
+
+      {showForm && (
+        <AddProductForm
+          onAdd={(product) => {
+            setProducts([...products, { ...product, id: Date.now() }]);
+            setShowForm(false);
+          }}
+        />
+      )}
 
       <button type="button" onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}>
         {mode === 'light' ? 'מצב כהה' : 'מצב בהיר'}
